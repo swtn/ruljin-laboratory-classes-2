@@ -1,10 +1,12 @@
 const express = require("express");
-const path = require("path");
+const { getProcessLog } = require("../utils/logger");
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views", "logout.html"));
+    getProcessLog();
+    res.end();
+    process.exit();
 });
 
 module.exports = router;
